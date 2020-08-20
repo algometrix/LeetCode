@@ -4,18 +4,13 @@ class AncestralTree:
         self.name = name
         self.ancestor = None
 
-
 def backtrack(node, visited):
 	while node != None:
 		if node.name not in visited.keys():
 			visited[node.name] = 1
 		else:
 			return node
-		
 		node = node.ancestor
-		
-		
-	
 		
 def getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo):
     # Write your code here.
