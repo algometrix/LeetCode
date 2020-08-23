@@ -5,21 +5,27 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getSum(self, root):
+    def getSum(self, root, memoryThingy):
         if root is None:
             return 0
         else:
-            return root.val + self.getSum(root.left) + self.getSum(root.right)
+            if hash(root) in memoryThingy.keys():
+                return memoryThingy[hash(root)]
+            else:
+                subtree_sum = root.val + self.getSum(root.left, memoryThingy) + self.getSum(root.right, memoryThingy)
+                memoryThingy[hash(root)] = subtree_sum
+                return subtree_sum
             
     def findFrequentTreeSum(self, root: TreeNode) -> List[int]:
         from collections import Counter
         sum_list = []
+        memoryThingy = {}
         if root is None:
             return []
         queue = [root]
         while queue:
             current_node = queue.pop(0)
-            result = self.getSum(current_node)
+            result = self.getSum(current_node, memoryThingy)
             sum_list.append(result)
             if current_node.left:
                 queue.append(current_node.left)
