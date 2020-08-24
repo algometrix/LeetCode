@@ -16,10 +16,10 @@ def matrixQueries(n, m, queries):
     for query in queries:
         if query[0] == 0:
             result.append(min(matrix_as_list))
-        elif query[0] == 2:
+        elif query[0] == 1:
             for j in range(m):
                 matrix_update_to_list(matrix_as_list, query[1] - 1, j, n, m, float('inf'))
-        elif query[0] == 1:
+        elif query[0] == 2:
             for i in range(n):
                 matrix_update_to_list(matrix_as_list, i,query[1] - 1, n, m, float('inf'))
 
