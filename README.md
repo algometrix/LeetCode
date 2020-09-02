@@ -9,4 +9,4 @@
 
 
 ## Explanations:
-* 84 : Pending
+* 84 : Stack based largest rectangle calculation. Imagine a boundary collapising in itself on the stack, somewhere along the lines of Tetris.
