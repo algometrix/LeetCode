@@ -6,3 +6,7 @@
 
 ## Pending Questions:
 * 65
+
+
+## Explanations:
+* 84 : Pending
