@@ -1,6 +1,5 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        new_string = ''
         i = 0
         for _ in range(len(s)):
             if s[i] == s[-(i + 1)]: 
