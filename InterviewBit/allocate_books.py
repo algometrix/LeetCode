@@ -33,7 +33,6 @@ Solution Type : Binary Search of the search space
 def books(book_page_count, number_of_bags):
     result = []
     def req_bags(min_pages, max_pages):
-        print(min_pages, max_pages)
         mid_page_count = ( min_pages + max_pages ) // 2
         if min_pages >= max_pages:
             return 0
@@ -68,7 +67,7 @@ def books(book_page_count, number_of_bags):
     if len(result) == 0:
         return max(book_page_count)
     else:
-        return min(result)
+        return result[-1]
 
 
 if __name__ == "__main__":
