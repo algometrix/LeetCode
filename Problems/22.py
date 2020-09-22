@@ -42,18 +42,21 @@ Parenthesis String : ['((()))', '(()())', '(())()', '()(())', '()()()']
 ['((()))', '(()())', '(())()', '()(())', '()()()']
 '''
 
+
 def generateParenthesis(n):
-    def generate(p, left, right, parens=[], level = 1):
-        if left:         
-            generate(p + '(', left-1, right, parens, level + 1)
-        if right > left: 
-            generate(p + ')', left, right-1, parens, level + 1)
-        if not right:    
-            parens += p,
-        
-        return parens
-    
-    return generate('', n, n)
+    def dfs(s, left, right, result):
+        print('Left : {} : Right : {} => {}'.format(left, right, s))
+        if left != 0:
+            dfs(s + '(', left-1, right, result)
+        if right and right > left:
+            dfs(s + ')', left, right-1, result)
+
+        if left == 0 and right == 0:
+            result.append(s)
+
+    result = []
+    dfs('', n, n, result)
+    return result
 
 
 if __name__ == "__main__":
