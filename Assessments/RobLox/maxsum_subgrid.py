@@ -30,7 +30,7 @@ def largestSubgrid(matrix, maxSum):
         mid_search_space = (search_space_min + search_space_max) // 2
         subgrid_sum = subgridSum(matrix, mid_search_space)
         if subgrid_sum > maxSum:
-            search_space_min = mid_search_space
+            search_space_min = mid_search_space + 1
         else:
             search_space_max = mid_search_space
             result.append(mid_search_space)
@@ -39,7 +39,7 @@ def largestSubgrid(matrix, maxSum):
 
 if __name__ == "__main__":
     matrix = [
-                [1, 1, 1],
+                [1, 1, 4],
                 [1, 1, 1],
                 [1, 1, 1],
             ]   
