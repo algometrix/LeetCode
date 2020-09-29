@@ -1,29 +1,18 @@
-
-def calc_candy(candies, ratings, index):
-    print(candies)
-    if candies[index] == 0:
-        return 1
-    if ratings[index] == 0:
-        candies[index] = 1
-        calc_candy(candies, ratings, index + 1)
-        calc_candy(candies, ratings, index - 1)
-    elif ratings[index] == -1:
-        return -1
-    else:
-        candies[index] = 0
-        if ratings[index - 1] >= ratings[index] and ratings[index] <= ratings[index + 1]:
-            candies[index] = 1
-        else:
-            candies[index] = max(calc_candy(candies, ratings, index - 1), calc_candy(candies, ratings, index + 1)) + 1
-        return candies[index]
-
 def candy(ratings):
-    ratings = [-1] + ratings + [-1]
-    candies = [-1] * (len(ratings) + 2)
-    calc_candy(candies, ratings, 1)
-    return candies
+    ratings = [float('inf')] + ratings + [float('inf')]
+    length = len(ratings)
+    candies = [1] * length
+    for i in range(1, length-1):
+        if ratings[i] > ratings[i-1]:
+            candies[i] = candies[i-1] + 1
+    
+    for i in range(length-2, 0, -1):
+        if ratings[i] > ratings[i+1]:
+            candies[i] = max(candies[i+1] + 1, candies[i])
+    
+    return sum(candies[1:-1])
 
 if __name__ == "__main__":
-    _input = [1,0,2,3,0,2]
-    result = candy(_input)
-    print('Number of Candies : {}'.format(result))
+    ratings = [29,51,87,87,72,12]
+    result = candy(ratings)
+    print('Total number of candies required : {}'.format(result))
