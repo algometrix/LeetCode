@@ -1,5 +1,5 @@
 # Ref : https://medium.com/100-days-of-algorithms/day-41-union-find-d0027148376d
-
+# Git Source : https://github.com/coells/100days
 
 def find(data, i):
     if i != data[i]:
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # union
     for i, j in connections:
         union(data, i, j)
-        
+
     # find
     for i in range(n):
         print('item', i, '-> component', find(data, i))
