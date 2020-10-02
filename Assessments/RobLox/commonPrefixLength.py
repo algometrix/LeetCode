@@ -21,6 +21,9 @@ def match(prefix, suffix):
                  j += 1
             else:
                 return counter
+        if j == len(suffix):
+            return counter
+            
         i = 0
 
     return counter
