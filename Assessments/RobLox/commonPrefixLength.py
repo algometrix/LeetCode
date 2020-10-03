@@ -11,21 +11,16 @@ def match(prefix, suffix):
     counter = 0
     i, j = 0, 0
     print(prefix, suffix)
-    while True:
-        while j < len(suffix):
-            if j == len(suffix):
-                return counter
-            if prefix[i] == suffix[j]:
-                 counter += 1
-                 i = (i + 1) % len(prefix)
-                 j += 1
-            else:
-                return counter
+    while j < len(suffix):
         if j == len(suffix):
             return counter
-            
-        i = 0
-
+        if prefix[i] == suffix[j]:
+                counter += 1
+                i = (i + 1) % len(prefix)
+                j += 1
+        else:
+            return counter
+    
     return counter
 
 def commonPrefixLength(s):
@@ -40,9 +35,6 @@ def commonPrefixLength(s):
     
     
     return prefixSum
-
-#def commonPrefixLength(s):
-    
 
 if __name__ == "__main__":
     match("ababa", "a")
