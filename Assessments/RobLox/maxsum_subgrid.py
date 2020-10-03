@@ -26,23 +26,28 @@ def largestSubgrid(matrix, maxSum):
     search_space_min = 1
     search_space_max = row
     result = []
-    while search_space_min < search_space_max:
+    while search_space_min <= search_space_max:
+        #print(search_space_min, search_space_max)
         mid_search_space = (search_space_min + search_space_max) // 2
         subgrid_sum = subgridSum(matrix, mid_search_space)
+        #print("Sum ", mid_search_space, subgrid_sum)
         if subgrid_sum > maxSum:
-            search_space_min = mid_search_space + 1
+            search_space_max = mid_search_space - 1
         else:
-            search_space_max = mid_search_space
+            search_space_min = mid_search_space + 1
             result.append(mid_search_space)
 
+    #print(result)
     return max(result)
 
 if __name__ == "__main__":
     matrix = [
-                [1, 1, 4],
-                [1, 1, 1],
-                [1, 1, 1],
+                [1, 1, 1,1],
+                [2, 2, 2, 2],
+                [3, 3, 3, 3],
+                [4, 4, 4, 4]
             ]   
-    maxSum = 4
+    
+    maxSum = 39
     result = largestSubgrid(matrix, maxSum)
     print('Output : {}'.format(result))
