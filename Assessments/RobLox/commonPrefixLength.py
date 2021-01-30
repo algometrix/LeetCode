@@ -37,7 +37,7 @@ def commonPrefixLength(s):
     return prefixSum
 
 if __name__ == "__main__":
-    match("ababa", "a")
-    _input = "ababaa"
+    #match("ababa", "a")
+    _input = "aaaaaabbbbb"
     result = commonPrefixLength(_input)
     print('Output : {}'.format(result))

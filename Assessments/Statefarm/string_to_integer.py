@@ -54,4 +54,4 @@ def string_to_integer(s):
 
 
 if __name__ == "__main__":
-    print(string_to_integer('eleven thousand one hundred eleven\n'))
+    print(string_to_integer('eleven thousand eleven\n'))
